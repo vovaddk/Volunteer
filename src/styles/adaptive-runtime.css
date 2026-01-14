@@ -1,0 +1,21 @@
+/* Runtime adaptive additions that must exist regardless of the Tailwind build pipeline */
+
+/* Make behavior-driven UI scaling affect rem-based spacing too */
+html {
+  transition: font-size 0.3s ease-out;
+}
+
+html.scaled-ui {
+  font-size: calc(100% * var(--ui-scale));
+}
+
+/* Eye comfort: warm overlay */
+body.eye-comfort::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: rgba(255, 235, 200, 0.18);
+  mix-blend-mode: multiply;
+}
